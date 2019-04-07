@@ -13,7 +13,8 @@ export default env => {
         entry: './src/index.jsx',
         output: {
             path: resolve(__dirname, 'dist'),
-            publicPath: join(__dirname, '/dist'),
+            // publicPath: join(__dirname, '/dist'),
+            publicPath: '/',
             filename: 'bundle.js'
         },
 
@@ -57,7 +58,7 @@ export default env => {
                 {
                     test: /\.less$/,
                     use: removeEmpty([
-                        // ifNotProduction('css-hot-loader'),
+                        ifNotProduction('css-hot-loader'),
                         MiniCssExtractPlugin.loader,
                         'css-loader',
                         {
@@ -78,21 +79,21 @@ export default env => {
         },
 
         plugins: removeEmpty([
-            // ifNotProduction(new webpack.HotModuleReplacementPlugin()),
-            new MiniCssExtractPlugin({
-                filename: "[name].css",
-                chunkFilename: "[id].css"
-            }),
+            ifNotProduction(new webpack.HotModuleReplacementPlugin()),
+            // new MiniCssExtractPlugin({
+            //     filename: "[name].css",
+            //     chunkFilename: "[id].css"
+            // }),
             // no matter if it's one file or 2 files, content of result file will have ALL files
             // This is odd duplication issues.
             // new MiniCssExtractPlugin({
             //     filename: 'css/main.css',
             //     chunkFilename: 'css/main.css'
             // }),
-            // new MiniCssExtractPlugin({
-            //     filename: 'css/app.css',
-            //     chunkFilename: 'css/app.css'
-            // }),
+            new MiniCssExtractPlugin({
+                filename: 'css/app.css',
+                chunkFilename: 'css/app.css'
+            }),
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',
                 filename: 'index.html',
@@ -125,8 +126,8 @@ export default env => {
 
         devServer: {
             host: 'localhost',
-            port: 3000
-            // hot: true
+            port: 3000,
+            hot: true
         },
 
         devtool: 'source-map'
