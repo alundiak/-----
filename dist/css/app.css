@@ -54,6 +54,14 @@
   background: #4caf50;
   cursor: pointer;
 }
+.info {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+}
+.info .done h1 {
+  color: red;
+}
 
 
 /*# sourceMappingURL=app.css.map*/

@@ -11,6 +11,8 @@ import 'css/app.less';
 const constants = {
     defaultHorizontalValue: 110,
     defaultVerticalValue: -193,
+    hRange: [20, 25], // middle 25
+    vRange: [-175, -170], // middle -173
 };
 
 class App extends React.Component {
@@ -24,18 +26,24 @@ class App extends React.Component {
 
     state = {
         leftPosition: constants.defaultHorizontalValue,
-        topPosition: constants.defaultVerticalValue
+        topPosition: constants.defaultVerticalValue,
+        result: ''
     }
 
     treeSliderChangeHandler = (horizontalSliderValue, verticalSliderValue) => {
+        const hCriteria = horizontalSliderValue > constants.hRange[0] && horizontalSliderValue < constants.hRange[1];
+        const vCriteria = verticalSliderValue > constants.vRange[0] && verticalSliderValue < constants.vRange[1];
+        const result = (hCriteria && vCriteria) || '';
+
         this.setState({
             leftPosition: horizontalSliderValue,
-            topPosition: verticalSliderValue
+            topPosition: verticalSliderValue,
+            result
         });
     }
 
     render() {
-        const { leftPosition, topPosition } = this.state;
+        const { leftPosition, topPosition, result } = this.state;
 
         return (
             <div>
@@ -55,6 +63,7 @@ class App extends React.Component {
                 <Info
                     leftPosition={leftPosition}
                     topPosition={topPosition}
+                    done={result}
                 />
             </div>
         );
