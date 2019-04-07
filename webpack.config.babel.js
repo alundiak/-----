@@ -13,8 +13,8 @@ export default env => {
         entry: './src/index.jsx',
         output: {
             path: resolve(__dirname, 'dist'),
-            publicPath: join(__dirname, '/dist'),
-            // publicPath: '/',
+            // publicPath: join(__dirname, '/dist'),
+            publicPath: './',
             filename: 'bundle.js'
         },
 
