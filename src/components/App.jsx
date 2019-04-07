@@ -7,6 +7,7 @@ import TreeSlider from './TreeSlider';
 import Info from './Info';
 
 import 'css/app.less';
+import 'css/responsive.less';
 
 const constants = {
     defaultHorizontalValue: 110,
@@ -25,8 +26,10 @@ class App extends React.Component {
     // };
 
     state = {
-        leftPosition: constants.defaultHorizontalValue,
-        topPosition: constants.defaultVerticalValue,
+        // leftPosition: constants.defaultHorizontalValue,
+        // topPosition: constants.defaultVerticalValue,
+        leftPosition: null,
+        topPosition: null,
         result: ''
     }
 

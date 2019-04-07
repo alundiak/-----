@@ -63,5 +63,46 @@
   color: red;
 }
 
+@media screen and (max-width: 471px) {
+  .road img {
+    width: 250px;
+  }
+  .road .spot {
+    top: 171px;
+    left: 40px;
+    width: 90px;
+    height: 75px;
+  }
+  .road .spot .tree img {
+    top: -163px;
+    left: 90px;
+    width: 90px;
+  }
+  .tree-slider .slider#horizontalSlider {
+    width: 250px;
+  }
+  .tree-slider .slider#verticalSlider {
+    width: 362px;
+    top: 174px;
+    left: 94px;
+  }
+  .info {
+    position: static;
+  }
+  .info h1 {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 472px) and (max-width: 768px) {
+  .info {
+    right: 10px;
+  }
+  .info h1 {
+    font-size: 1.5em;
+  }
+}
+@media only screen and (orientation: landscape) {
+}
+
 
 /*# sourceMappingURL=app.css.map*/
