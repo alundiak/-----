@@ -3,49 +3,86 @@ import PropTypes from 'prop-types';
 
 class TreeSlider extends React.Component {
     static propTypes = {
-        defaultSliderValue: PropTypes.number,
+        defaultHorizontalValue: PropTypes.number,
+        defaultVerticalValue: PropTypes.number,
         onChangeCallback: PropTypes.func
     }
 
     static defaultProps = {
-        defaultSliderValue: 50,
+        defaultHorizontalValue: 110,
+        defaultVerticalValue: 193,
         onChangeCallback: null
     }
 
     state = {
-        sliderValue: this.props.defaultSliderValue // eslint-disable-line
+        horizontalSliderValue: this.props.defaultHorizontalValue, // eslint-disable-line
+        verticalSliderValue: this.props.defaultVerticalValue // eslint-disable-line
     }
 
-    onChange = (event) => {
+    // onChange = (event) => {
+    //     const { target } = event;
+    //     const { onChangeCallback } = this.props;
+
+    //     // console.log(`${target.name}Value`);
+
+    //     this.setState({
+    //         [`${target.name}Value`]: target.value
+    //     }, () => {
+    //         // TODO it's odd, that I change internal state of component and pass same value to parent.
+    //         // Must be smart way to handle Component change and traverse to parent.
+    //         // children related?
+    //         // ContextProvider related?
+    //         onChangeCallback(this.state.horizontalSliderValue, this.state.verticalSliderValue);
+    //     });
+    // }
+
+    onHorizontalChange = (event) => {
         const { target } = event;
         const { onChangeCallback } = this.props;
 
         this.setState({
-            sliderValue: target.value
+            horizontalSliderValue: +target.value // quick casting from string to number
         }, () => {
-            // TODO it's odd, that I change interanl state of component and pass same value to parent.
-            // Must be smart way to handle Component change and traverse to parent.
-            // children related?
-            // ContextProvider related?
-            onChangeCallback(target.value);
+            onChangeCallback(this.state.horizontalSliderValue, this.state.verticalSliderValue); //eslint-disable-line
+        });
+    }
+
+    onVerticalChange = (event) => {
+        const { target } = event;
+        const { onChangeCallback } = this.props;
+
+        this.setState({
+            verticalSliderValue: +target.value // quick casting from string to number
+        }, () => {
+            onChangeCallback(this.state.horizontalSliderValue, this.state.verticalSliderValue); //eslint-disable-line
         });
     }
 
     render() {
-        const { sliderValue } = this.state;
-
-        console.log('Default Slider Value', sliderValue);
+        const { horizontalValue, verticalValue } = this.state;
 
         return (
             <div className="tree-slider">
                 <input
                     type="range"
                     className="slider"
-                    id="myRange"
+                    id="horizontalSlider"
+                    name="horizontalSlider"
                     min="1"
-                    max="100"
-                    value={sliderValue}
-                    onChange={this.onChange} />
+                    max="110"
+                    value={horizontalValue}
+                    onChange={this.onHorizontalChange} />
+
+                <input
+                    type="range"
+                    className="slider"
+                    id="verticalSlider"
+                    name="verticalSlider"
+                    min="125"
+                    max="250"
+                    value={verticalValue}
+                    onChange={this.onVerticalChange} />
+
             </div>
         );
     }

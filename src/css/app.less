@@ -1,10 +1,24 @@
 .road {
-}
+  img {
+    position: relative;
+  }
 
-.spot {
-}
+  .spot {
+    position: absolute;
+    border: 1px dashed green;
+    width: 110px;
+    height: 100px;
+    top: 200px;
+    left: 45px;
 
-.tree {
+    .tree {
+      img {
+        position: absolute;
+        top: -193px;
+        left: 110px;
+      }
+    }
+  }
 }
 
 .tree-slider {
@@ -19,6 +33,21 @@
     opacity: 0.7;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
+
+    &#horizontalSlider {
+      width: 297px;
+    }
+
+    &#verticalSlider {
+      // -webkit-appearance: slider-vertical;
+      width: 30%;
+      position: absolute;
+      top: 42%;
+      left: 102px;
+      transform: rotate(270deg);
+      // or 3D
+      // transform: rotateZ(270deg);
+    }
   }
 
   .slider:hover {

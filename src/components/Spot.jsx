@@ -18,7 +18,6 @@ class Spot extends React.Component {
         const { children } = this.props;
         return (
             <div className="spot">
-                TODO Spot
                 {children}
             </div>
         );

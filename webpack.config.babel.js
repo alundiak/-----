@@ -8,21 +8,21 @@ import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 const src = resolve(__dirname, './src');
 
 export default env => {
-    const { ifNotProduction } = getIfUtils(env);
+    const { ifNotProduction } = getIfUtils(env); // TODO use ifDev()
     return {
         entry: './src/index.jsx',
         output: {
             path: resolve(__dirname, 'dist'),
             // publicPath: join(__dirname, '/dist'),
-            publicPath: './',
+            publicPath: env.dev ? '/' : './',
             filename: 'bundle.js'
         },
 
-        // optimization: {
-        //     splitChunks: {
-        //         chunks: 'all',
-        //     },
-        // },
+        optimization: {
+            splitChunks: {
+                chunks: 'all',
+            },
+        },
 
         resolve: {
             alias: {
