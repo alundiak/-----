@@ -11,3 +11,8 @@
 
 - https://jsfiddle.net/rwaldron/XukVc/
 - https://stackoverflow.com/questions/15935837/how-to-display-a-range-input-slider-vertically
+- https://stackoverflow.com/questions/40920945/react-warning-unknown-prop-valueasnumber-on-input-tag
+    - `React does not recognize the `valueAsNumber` prop on a DOM element.`
+    - `React does not recognize the `data-valueAsNumber` prop on a DOM element.`
+- tbd
+

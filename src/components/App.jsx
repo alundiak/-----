@@ -10,7 +10,7 @@ import 'css/app.less';
 
 const constants = {
     defaultHorizontalValue: 110,
-    defaultVerticalValue: 193,
+    defaultVerticalValue: -193,
 };
 
 class App extends React.Component {
@@ -23,7 +23,8 @@ class App extends React.Component {
     // };
 
     state = {
-
+        leftPosition: constants.defaultHorizontalValue,
+        topPosition: constants.defaultVerticalValue
     }
 
     treeSliderChangeHandler = (horizontalSliderValue, verticalSliderValue) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import roadImg from 'img/2_tree.png';
+import treeImg from 'img/2_tree.png';
 
 class Tree extends React.Component {
     static propTypes = {
@@ -13,11 +13,6 @@ class Tree extends React.Component {
         topPosition: null
     }
 
-    // state = {
-    //     leftPosition: null,
-    //     topPosition: null
-    // }
-
     render() {
         const { leftPosition, topPosition } = this.props;
         const styles = {};
@@ -27,14 +22,12 @@ class Tree extends React.Component {
         }
 
         if (topPosition) {
-            styles.top = `-${topPosition}px`;
+            styles.top = `${topPosition}px`;
         }
-
-        console.log(styles);
 
         return (
             <div className="tree">
-                <img src={roadImg} alt="Tree" width="108px" style={styles} />
+                <img src={treeImg} alt="Tree" width="108px" style={styles} />
             </div>
         );
     }
