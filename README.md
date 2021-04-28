@@ -7,6 +7,10 @@
 
 - Facebook page ["Типичный Программист"](https://www.facebook.com/tproger/photos/a.549678675067486/2087584794610192/?type=3&theater)
 
+## Tech Stack
+
+- React, Prop Types, LESS.
+
 ## Resources
 
 - https://jsfiddle.net/rwaldron/XukVc/
